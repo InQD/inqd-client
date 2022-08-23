@@ -1,0 +1,12 @@
+@use '/src/styles/constants/colors';
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .app {
+    width: 390px;
+    height: 100vh;
+  }
+}
