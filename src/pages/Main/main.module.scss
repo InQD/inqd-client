@@ -1,5 +1,28 @@
 @use '/src/styles/constants/colors';
 
+// 등장 애니메이션 : 페이드인 / 페이드 아웃
+@keyframes fadein {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeout {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+}
+
 .main {
   display: flex;
   flex-direction: column;
@@ -13,13 +36,23 @@
   .header {
     display: flex;
     justify-content: right;
-    height: 120px;
+    height: 80px;
 
+    // Floating Message
     .floatingMessage {
       display: flex;
       position: relative;
       top: 20px;
       left: 10px;
+
+      &.fadein {
+        animation: fadein 0.5s;
+      }
+
+      &.fadeout {
+        opacity: 0;
+        animation: fadeout 0.5s;
+      }
     }
 
     p {
@@ -47,10 +80,18 @@
     border-radius: 15px;
     margin: auto;
     background: colors.$BG_D9;
+    transition: all ease 0.5s;
+    background: linear-gradient(to top, colors.$YELLOW 50%, colors.$BG_D9 50%);
+    background-size: 100% 200%;
+    background-position: top;
+
+    &.fillColor {
+      background-position: bottom;
+    }
 
     .logoTitle {
       transform: translateY(50%);
-      font-weight: bold;
+      font-weight: 700;
 
       .topText {
         padding-bottom: 20px;
@@ -84,9 +125,17 @@
     line-height: 64px;
     text-align: center;
     color: colors.$MAIN_TEXT;
+    transition: all ease 0.5s;
+    background: linear-gradient(to top, colors.$YELLOW 50%, colors.$BG_B4 50%);
+    background-size: 100% 200%;
+    background-position: top;
+
+    &.fillColor {
+      background-position: bottom;
+    }
 
     button {
-      font-weight: bold;
+      font-weight: 700;
       font-size: 20px;
     }
   }
