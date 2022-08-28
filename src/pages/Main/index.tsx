@@ -20,7 +20,8 @@ const getAnimation = (interview: boolean | null) => {
 }
 
 const Main = () => {
-  const [interviewQuestions, setInterviewQuestions] = useState(null)
+  // setInterviewQuestions : 추후 기능에 따라 확장시 사용
+  const [interviewQuestions] = useState(null)
   const haveQuestion = interviewQuestions ?? null
   return (
     <section className={styles.main}>
