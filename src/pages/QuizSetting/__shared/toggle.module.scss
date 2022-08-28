@@ -1,0 +1,38 @@
+@use '/src/styles/constants/colors';
+
+.toggleContainer {
+  position: relative;
+  width: 50px;
+  height: 28px;
+  background-color: colors.$BG_D9;
+  border-radius: 30px;
+  transition: all 0.2s ease-in-out;
+
+  .toggleCircle {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    background-color: colors.$WHITE;
+    border-radius: 50%;
+    transition: all 0.2s ease-in-out;
+  }
+
+  .isCheckedCircle {
+    left: 24px;
+    transition: all 0.2s ease-in-out;
+  }
+
+  .toggleInput {
+    width: inherit;
+    height: inherit;
+    cursor: pointer;
+  }
+}
+
+.isCheckedBackground {
+  background-color: colors.$TOGGLE_GREEN;
+  transition: all 0.2s ease-in-out;
+}
