@@ -1,23 +1,4 @@
-import { useState } from 'react'
 import styles from './main.module.scss'
-import cx from 'classnames'
-
-import { SettingIcon, UpArrowIcon } from 'assets/svgs'
-import logoImg from '../../assets/images/logo.png'
-
-/**
- * @desc 인터뷰를 매개변수로 받아 스타일을 지정하는 유틸 함수
- *  */
-const getAnimation = (interview: boolean | null) => {
-  switch (interview) {
-    case null:
-      return styles.fadein
-    case true:
-      return styles.fadeout
-    default:
-      throw new Error(`unknown info : ${interview}`)
-  }
-}
 
 const Main = () => {
   // setInterviewQuestions : 추후 기능에 따라 확장시 사용
@@ -51,6 +32,8 @@ const Main = () => {
       </footer>
     </section>
   )
+
+  return <section className={styles.mainContainer}>Main</section>
 }
 
 export default Main
