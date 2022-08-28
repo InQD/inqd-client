@@ -1,0 +1,32 @@
+@use '/src/styles/constants/colors';
+
+.searchBox {
+  display: flex;
+  align-items: center;
+  padding: 10px 15px;
+
+  svg {
+    width: 16px;
+    height: 16px;
+    fill: colors.$SVG_96;
+  }
+
+  input {
+    width: 264px;
+    margin-left: 12px;
+    font-size: 16px;
+    color: colors.$MAIN_TEXT;
+  }
+
+  button {
+    width: 18px;
+    height: 18px;
+    margin-left: 18px;
+
+    svg {
+      width: 18px;
+      height: 18px;
+      fill: colors.$SVG_80;
+    }
+  }
+}
