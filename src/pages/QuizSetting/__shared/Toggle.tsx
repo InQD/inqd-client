@@ -2,11 +2,16 @@ import { useState } from 'react'
 import { cx } from 'styles'
 import styles from './toggle.module.scss'
 
-const Toggle = () => {
+interface Props {
+  activeToggle: () => void
+}
+
+const Toggle = ({ activeToggle }: Props) => {
   const [isChecked, setIsChecked] = useState(false)
 
-  const handleToggleClick = () => {
+  const handleChangeToggle = () => {
     setIsChecked((prev) => !prev)
+    activeToggle()
   }
 
   return (
@@ -16,9 +21,9 @@ const Toggle = () => {
         name='timerToggle'
         className={styles.toggleInput}
         checked={isChecked}
-        onClick={handleToggleClick}
+        onChange={handleChangeToggle}
       />
-      <button type='button' onClick={handleToggleClick}>
+      <button type='button' onClick={handleChangeToggle}>
         <div className={cx(styles.toggleCircle, { [styles.isCheckedCircle]: isChecked })} />
       </button>
     </div>
