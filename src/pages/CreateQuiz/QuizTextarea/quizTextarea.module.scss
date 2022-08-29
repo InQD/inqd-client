@@ -1,8 +1,8 @@
 @use '/src/styles/constants/colors';
 
 // 내용 추가
-.question {
-  .questionLabel {
+.quizArea {
+  .quizAreaLabel {
     display: flex;
     flex-direction: column;
     padding-bottom: 20px;
