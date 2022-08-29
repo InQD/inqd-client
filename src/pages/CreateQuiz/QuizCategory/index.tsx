@@ -12,7 +12,7 @@ const QuizCategory = () => {
       <p>카테고리</p>
       <button
         type='button'
-        className={cx(`${styles.personality} ${styles.button}`, { [styles.disabled]: disabled })}
+        className={cx(styles.personality, styles.button, { [styles.disabled]: disabled })}
         disabled={!disabled}
         onClick={handleClickDisable}
       >
@@ -20,7 +20,7 @@ const QuizCategory = () => {
       </button>
       <button
         type='button'
-        className={cx(`${styles.technical} ${styles.button}`, { [styles.disabled]: !disabled })}
+        className={cx(styles.technical, styles.button, { [styles.disabled]: !disabled })}
         disabled={disabled}
         onClick={handleClickDisable}
       >
