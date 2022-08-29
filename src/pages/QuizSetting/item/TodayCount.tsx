@@ -5,8 +5,8 @@ import { cx } from 'styles'
 import { maxLengthCheck, personalQuizCount, techQuizCount } from 'utils/settingUtil'
 
 const TodayCount = () => {
-  const [todayPersonalCount, setTodayPersonalCount] = useState(0)
-  const [todayTechCount, setTodayTechCount] = useState(0)
+  const [todayPersonalCount, setTodayPersonalCount] = useState(2)
+  const [todayTechCount, setTodayTechCount] = useState(3)
 
   const personalAllCount = useMemo(() => personalQuizCount(), [])
   const techAllCount = useMemo(() => techQuizCount(), [])
