@@ -1,0 +1,106 @@
+@use '/src/styles/constants/colors';
+
+.createQuiz {
+  width: 100%;
+  min-height: 100%;
+  padding: 20px;
+  background: colors.$BG_F5;
+
+  .header {
+    height: 40px;
+  }
+
+  .main {
+    width: 100%;
+    background: colors.$WHITE;
+    border-radius: 20px;
+    padding: 16px;
+    font-size: 18px;
+
+    .display {
+      height: 66px;
+    }
+
+    // 카테고리
+    .category {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 52px;
+      padding-bottom: 20px;
+
+      > p {
+        flex: 1 1 50%;
+      }
+
+      .button {
+        flex-basis: 30%;
+        padding: 8px;
+        color: colors.$MAIN_TEXT;
+        border-radius: 10px;
+
+        &.disabled {
+          background: colors.$BG_B4;
+        }
+      }
+
+      .personality {
+        background: colors.$MAIN_GREEN;
+        margin-right: 8px;
+        &:hover {
+          border: 1px solid colors.$SUB_GREEN;
+        }
+      }
+
+      .technical {
+        background: colors.$MAIN_BLUE;
+        &:hover {
+          border: 1px solid colors.$SUB_BLUE;
+        }
+      }
+    }
+
+    // 필수 질문으로 지정
+    .essential {
+      padding-bottom: 20px;
+
+      .essentialLabel {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        user-select: none;
+
+        .checkmark {
+          width: 25px;
+          height: 25px;
+          border-radius: 5px;
+          border: 2px solid colors.$BG_E9;
+
+          &:hover {
+            border: 2px solid colors.$BG_D9;
+          }
+        }
+
+        .checkmark:after {
+          content: '';
+          position: relative;
+          display: none;
+          transition: all 1s;
+        }
+
+        & input[type='checkbox']:checked ~ .checkmark:after {
+          display: block;
+        }
+
+        & .checkmark:after {
+          top: 3px;
+          left: 3px;
+          width: 15px;
+          height: 15px;
+          background: colors.$SUB_BLUE;
+          border-radius: 2.5px;
+        }
+      }
+    }
+  }
+}
