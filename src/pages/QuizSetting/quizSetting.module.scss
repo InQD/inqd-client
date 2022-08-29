@@ -1,0 +1,62 @@
+@use '/src/styles/constants/colors';
+
+.container {
+  height: 100%;
+  padding: 30px 16px;
+  background-color: colors.$BG_F5;
+
+  .contents {
+    margin-top: 60px;
+
+    .settingBox {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
+      padding: 0 16px;
+      margin-top: 40px;
+      background-color: colors.$WHITE;
+      border-radius: 10px;
+
+      p {
+        font-size: 18px;
+        color: colors.$MAIN_TEXT;
+      }
+
+      span {
+        font-size: 12px;
+        color: colors.$MAIN_TEXT;
+      }
+
+      .dropdownToggle {
+        margin-left: 6px;
+        color: colors.$BG_B4;
+      }
+    }
+
+    .settingBoxChild {
+      margin-top: 16px;
+      background-color: colors.$WHITE;
+      border-radius: 10px;
+    }
+
+    // .timer {
+    // }
+
+    // .todayQuizCount {
+    // }
+
+    .quizEdit {
+      .searchListBox {
+        display: flex;
+        justify-content: center;
+
+        .listWrapper {
+          height: 330px;
+          margin: 16px 0;
+          overflow: scroll;
+        }
+      }
+    }
+  }
+}
