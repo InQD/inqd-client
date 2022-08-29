@@ -1,0 +1,26 @@
+@use '/src/styles/constants/colors';
+
+// 내용 추가
+.quizArea {
+  .quizAreaLabel {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 20px;
+
+    .textarea {
+      resize: none;
+      margin-top: 12px;
+      padding: 8px;
+      border: none;
+      background: colors.$BG_F5;
+    }
+
+    .characterLimit {
+      padding: 12px;
+      background: colors.$BG_F5;
+      text-align: right;
+      font-size: 14px;
+      color: colors.$SUB_TEXT;
+    }
+  }
+}
