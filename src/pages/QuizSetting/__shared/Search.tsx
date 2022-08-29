@@ -3,8 +3,6 @@ import styles from './search.module.scss'
 
 import { DeleteAllIcon, SearchIcon } from 'assets/svgs'
 
-interface IProps {}
-
 const Search = () => {
   const searchInput = useRef<HTMLInputElement>(null)
   const [searchText, setSearchText] = useState('')
