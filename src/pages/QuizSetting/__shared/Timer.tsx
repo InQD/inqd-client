@@ -6,11 +6,15 @@ const Timer = () => {
   const [seconds, setSeconds] = useState<number>()
 
   const handleChangeMinutes = (e: ChangeEvent<HTMLInputElement>) => {
-    setMinutes(Number(e.currentTarget.value))
+    const min = Number(e.currentTarget.value)
+    setMinutes(min)
+    if (min > 59) setMinutes(0)
   }
 
   const handleChangeSeconds = (e: ChangeEvent<HTMLInputElement>) => {
-    setSeconds(Number(e.currentTarget.value))
+    const sec = Number(e.currentTarget.value)
+    setSeconds(sec)
+    if (sec > 59) setSeconds(0)
   }
 
   return (
