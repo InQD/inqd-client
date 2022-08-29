@@ -3,276 +3,276 @@
     "id": 1,
     "category": "기술",
     "contents": "SPA, CSR, SSR의 차이에 대해 설명해주세요.",
-    "isStar": "FALSE"
+    "isStar": false
   },
   {
     "id": 2,
     "category": "기술",
     "contents": "Type과 Interface 차이에 대해 설명해주세요.",
-    "isStar": "FALSE"
+    "isStar": false
   },
   {
     "id": 3,
     "category": "기술",
     "contents": "브라우저의 렌더링 원리에 대해 설명해주세요.",
-    "isStar": "FALSE"
+    "isStar": false
   },
   {
     "id": 4,
     "category": "기술",
     "contents": "CORS에 대한 설명과 해결 방법에 대해 설명해주세요.",
-    "isStar": "FALSE"
+    "isStar": false
   },
   {
     "id": 5,
     "category": "기술",
     "contents": "동기와 비동기의 차이는 무엇인가요 ?",
-    "isStar": "FALSE"
+    "isStar": false
   },
   {
     "id": 6,
     "category": "기술",
     "contents": "Redux 간단하게 작동방식 설명해주세요.",
-    "isStar": "FALSE"
+    "isStar": false
   },
   {
     "id": 7,
     "category": "기술",
     "contents": "Recoil 간단하게 작동방식 설명해주세요.",
-    "isStar": "FALSE"
+    "isStar": false
   },
   {
     "id": 8,
     "category": "기술",
     "contents": "margin과 padding에 대해 설명해주세요.",
-    "isStar": "FALSE"
+    "isStar": false
   },
   {
     "id": 9,
     "category": "기술",
     "contents": "var, let, const의 차이점에 대해 설명해주세요.",
-    "isStar": "FALSE"
+    "isStar": false
   },
   {
     "id": 10,
     "category": "기술",
     "contents": "stack vs. queue 설명해주세요.",
-    "isStar": "FALSE"
+    "isStar": false
   },
   {
     "id": 11,
     "category": "기술",
     "contents": "불변성을 유지하려면 어떻게 해야할까요?",
-    "isStar": "FALSE"
+    "isStar": false
   },
   {
     "id": 12,
     "category": "기술",
     "contents": "this의 용법을 아는대로 설명하세요.",
-    "isStar": "FALSE"
+    "isStar": false
   },
   {
     "id": 13,
     "category": "기술",
     "contents": "async/await란 ?",
-    "isStar": "FALSE"
+    "isStar": false
   },
   {
     "id": 14,
     "category": "기술",
     "contents": "Promise와 Callback의 차이",
-    "isStar": "FALSE"
+    "isStar": false
   },
   {
     "id": 15,
     "category": "기술",
     "contents": "일반 함수와 화살표 함수의 차이",
-    "isStar": "FALSE"
+    "isStar": false
   },
   {
     "id": 16,
     "category": "기술",
     "contents": "클로저에 대해 설명해주세요.",
-    "isStar": "FALSE"
+    "isStar": false
   },
   {
     "id": 17,
     "category": "기술",
     "contents": "브라우저 저장소(로컬 스토리지, 세션, 쿠키) 차이점",
-    "isStar": "FALSE"
+    "isStar": false
   },
   {
     "id": 18,
     "category": "기술",
     "contents": "실행컨텍스트 (클로저, this, 호이스팅, 스코프)에 대해 설명해주세요.",
-    "isStar": "FALSE"
+    "isStar": false
   },
   {
     "id": 19,
     "category": "기술",
     "contents": "Cascading에 대해 설명해주세요.",
-    "isStar": "FALSE"
+    "isStar": false
   },
   {
     "id": 20,
     "category": "기술",
     "contents": "이벤트 루프와 태스크 큐",
-    "isStar": "FALSE"
+    "isStar": false
   },
   {
     "id": 21,
     "category": "기술",
     "contents": "Virtual DOM 작동원리를 설명해주세요.",
-    "isStar": "FALSE"
+    "isStar": false
   },
   {
     "id": 22,
     "category": "기술",
     "contents": "flexbox vs. grid",
-    "isStar": "FALSE"
+    "isStar": false
   },
   {
     "id": 23,
     "category": "기술",
     "contents": "이벤트 캡쳐링, 이벤트 버블링",
-    "isStar": "FALSE"
+    "isStar": false
   },
   {
     "id": 24,
     "category": "기술",
     "contents": "웹팩과 바벨은 무엇인지 설명해주세요.",
-    "isStar": "FALSE"
+    "isStar": false
   },
   {
     "id": 25,
     "category": "기술",
     "contents": "Blocking과 Non-Blocking의 차이",
-    "isStar": "FALSE"
+    "isStar": false
   },
   {
     "id": 26,
     "category": "기술",
     "contents": "useCallback과 useMemo의 차이",
-    "isStar": "FALSE"
+    "isStar": false
   },
   {
     "id": 27,
     "category": "기술",
     "contents": "호이스팅에 대해 설명해주세요.",
-    "isStar": "FALSE"
+    "isStar": false
   },
   {
     "id": 28,
     "category": "기술",
     "contents": "forEach vs. map() / for in vs. for of 의 주요 차이점을 설명해주세요.",
-    "isStar": "FALSE"
+    "isStar": false
   },
   {
     "id": 29,
     "category": "기술",
     "contents": "position의 종류와 차이",
-    "isStar": "FALSE"
+    "isStar": false
   },
   {
     "id": 30,
     "category": "기술",
     "contents": "Redux에서 reducer에 불변 함수를 사용하는 이유",
-    "isStar": "FALSE"
+    "isStar": false
   },
   {
     "id": 31,
     "category": "기술",
     "contents": "디바운싱 vs. 쓰로틀링",
-    "isStar": "TRUE"
+    "isStar": true
   },
   {
     "id": 32,
     "category": "기술",
     "contents": "attribute\"와 \"property\"의 차이점은 무엇인가요?",
-    "isStar": "TRUE"
+    "isStar": true
   },
   {
     "id": 33,
     "category": "기술",
     "contents": "RESTful API에 대해 설명해주세요.",
-    "isStar": "TRUE"
+    "isStar": true
   },
   {
     "id": 34,
     "category": "기술",
     "contents": "props와 state 차이",
-    "isStar": "TRUE"
+    "isStar": true
   },
   {
     "id": 35,
     "category": "인성",
     "contents": "1분 자기소개 해주세요",
-    "isStar": "FALSE"
+    "isStar": false
   },
   {
     "id": 36,
     "category": "인성",
     "contents": "좋은 코드란 무엇일까요?",
-    "isStar": "FALSE"
+    "isStar": false
   },
   {
     "id": 37,
     "category": "인성",
     "contents": "왜 개발자가 되기로 결심했나요?",
-    "isStar": "FALSE"
+    "isStar": false
   },
   {
     "id": 38,
     "category": "인성",
     "contents": "본인의 장단점을 말해주세요.",
-    "isStar": "FALSE"
+    "isStar": false
   },
   {
     "id": 39,
     "category": "인성",
     "contents": "앞으로 5년뒤 어떤 개발자가 되고싶나요?",
-    "isStar": "FALSE"
+    "isStar": false
   },
   {
     "id": 40,
     "category": "인성",
     "contents": "어떤 개발자가 잘 하는 개발자일까요?",
-    "isStar": "FALSE"
+    "isStar": false
   },
   {
     "id": 41,
     "category": "인성",
     "contents": "다른 사람들은 당신을 어떻게 표현하나요?",
-    "isStar": "FALSE"
+    "isStar": false
   },
   {
     "id": 42,
     "category": "인성",
     "contents": "코드리뷰를 어떤 방식으로 하나요?",
-    "isStar": "FALSE"
+    "isStar": false
   },
   {
     "id": 43,
     "category": "인성",
     "contents": "프로젝트 수행 중 어려웠던 경험이 있나요?",
-    "isStar": "FALSE"
+    "isStar": false
   },
   {
     "id": 44,
     "category": "인성",
     "contents": "번아웃이 오면 어떻게 이겨내나요?",
-    "isStar": "FALSE"
+    "isStar": false
   },
   {
     "id": 45,
     "category": "인성",
     "contents": "프로젝트에서 가장 중요한 것은 무엇이라고 생각하나요?",
-    "isStar": "FALSE"
+    "isStar": false
   },
   {
     "id": 46,
     "category": "인성",
     "contents": "롤모델이 있나요?",
-    "isStar": "FALSE"
+    "isStar": false
   }
 ]

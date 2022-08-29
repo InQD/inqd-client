@@ -1,0 +1,16 @@
+@use '/src/styles/constants/colors';
+
+.timerTime {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 36px;
+  background-color: colors.$BG_E9;
+  border-radius: 10px;
+
+  .time {
+    width: 20px;
+    text-align: center;
+  }
+}
