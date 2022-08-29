@@ -1,0 +1,39 @@
+@use '/src/styles/constants/colors';
+// 카테고리
+.category {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 52px;
+  padding-bottom: 20px;
+
+  > p {
+    flex: 1 1 50%;
+  }
+
+  .button {
+    flex-basis: 30%;
+    padding: 8px;
+    color: colors.$MAIN_TEXT;
+    border-radius: 10px;
+
+    &.disabled {
+      background: colors.$BG_B4;
+    }
+  }
+
+  .personality {
+    background: colors.$MAIN_GREEN;
+    margin-right: 8px;
+    &:hover {
+      border: 1px solid colors.$SUB_GREEN;
+    }
+  }
+
+  .technical {
+    background: colors.$MAIN_BLUE;
+    &:hover {
+      border: 1px solid colors.$SUB_BLUE;
+    }
+  }
+}

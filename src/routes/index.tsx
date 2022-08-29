@@ -3,6 +3,7 @@ import styles from './routes.module.scss'
 
 import Main from 'pages/Main'
 import QuizSetting from 'pages/QuizSetting'
+import CreateQuiz from 'pages/CreateQuiz'
 
 const App = () => {
   return (
@@ -11,6 +12,7 @@ const App = () => {
         <Routes>
           <Route path='/' element={<Main />} />
           <Route path='setting' element={<QuizSetting />} />
+          <Route path='/createQuiz' element={<CreateQuiz />} />
         </Routes>
       </div>
     </div>

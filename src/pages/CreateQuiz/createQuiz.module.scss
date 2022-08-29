@@ -1,0 +1,69 @@
+@use '/src/styles/constants/colors';
+
+.createQuiz {
+  width: 100%;
+  min-height: 100%;
+  padding: 20px;
+  background: colors.$BG_F5;
+
+  .header {
+    height: 40px;
+  }
+
+  .main {
+    width: 100%;
+    background: colors.$WHITE;
+    border-radius: 20px;
+    padding: 16px;
+    font-size: 18px;
+
+    .display {
+      height: 66px;
+    }
+
+    
+
+    // 필수 질문으로 지정
+    .essential {
+      padding-bottom: 20px;
+
+      .essentialLabel {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        user-select: none;
+
+        .checkmark {
+          width: 25px;
+          height: 25px;
+          border-radius: 5px;
+          border: 2px solid colors.$BG_E9;
+
+          &:hover {
+            border: 2px solid colors.$BG_D9;
+          }
+        }
+
+        .checkmark:after {
+          content: '';
+          position: relative;
+          display: none;
+          transition: all 1s;
+        }
+
+        & input[type='checkbox']:checked ~ .checkmark:after {
+          display: block;
+        }
+
+        & .checkmark:after {
+          top: 3px;
+          left: 3px;
+          width: 15px;
+          height: 15px;
+          background: colors.$SUB_BLUE;
+          border-radius: 2.5px;
+        }
+      }
+    }
+  }
+}
