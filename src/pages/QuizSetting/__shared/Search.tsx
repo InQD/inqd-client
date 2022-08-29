@@ -1,11 +1,15 @@
-import { ChangeEvent, useRef, useState } from 'react'
+import { ChangeEvent, useEffect, useRef, useState } from 'react'
+import { useDispatch } from 'react-redux'
 import styles from './search.module.scss'
+
+import { setSearchValue } from 'states/setting'
 
 import { DeleteAllIcon, SearchIcon } from 'assets/svgs'
 
 const Search = () => {
   const searchInput = useRef<HTMLInputElement>(null)
   const [searchText, setSearchText] = useState('')
+  const dispatch = useDispatch()
 
   const handleChangeSearch = (e: ChangeEvent<HTMLInputElement>) => {
     setSearchText(e.currentTarget.value)
@@ -15,6 +19,11 @@ const Search = () => {
     setSearchText('')
     searchInput.current?.focus()
   }
+
+  useEffect(() => {
+    dispatch(setSearchValue(searchText))
+  }, [dispatch, searchText])
+
   return (
     <div className={styles.searchBox}>
       <SearchIcon />

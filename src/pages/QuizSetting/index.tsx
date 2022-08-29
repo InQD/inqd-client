@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import { useMemo, useState } from 'react'
+import { useSelector } from 'react-redux'
 import styles from './quizSetting.module.scss'
 
 import SettingHeader from 'components/SettingHeader'
@@ -7,11 +8,17 @@ import Toggle from './__shared/Toggle'
 import Timer from './__shared/Timer'
 import Search from './__shared/Search'
 import QuizCard from 'components/QuizCard'
+import { getSearchValue } from 'states/setting'
 
 import data from 'assets/json/interview_list.json'
 
 const QuizSetting = () => {
   const [isTimerOpen, setIsTimerOpen] = useState(false)
+  const searchValue = useSelector(getSearchValue)
+  const searchData = useMemo(
+    () => (searchValue ? data.filter((item) => item.contents.toLowerCase().includes(searchValue)) : data),
+    [searchValue]
+  )
 
   const handleClickSubmit = () => {}
 
@@ -70,7 +77,7 @@ const QuizSetting = () => {
           <div className={styles.settingBoxChild}>
             <div className={styles.searchListBox}>
               <div className={styles.listWrapper}>
-                {data.map((item) => {
+                {searchData.map((item) => {
                   if (!item) return null
                   return (
                     <QuizCard key={item.id} category={item.category} isStar={item.isStar} src={`/editQuiz/${item.id}`}>
