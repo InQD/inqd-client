@@ -25,15 +25,18 @@
   .personality {
     background: colors.$MAIN_GREEN;
     margin-right: 8px;
+    transition: background linear 0.3s;
+
     &:hover {
-      border: 1px solid colors.$SUB_GREEN;
+      background: colors.$MAIN_GREEN;
     }
   }
 
   .technical {
     background: colors.$MAIN_BLUE;
+    transition: background linear 0.3s;
     &:hover {
-      border: 1px solid colors.$SUB_BLUE;
+      background: colors.$MAIN_BLUE;
     }
   }
 }

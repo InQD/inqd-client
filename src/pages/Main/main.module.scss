@@ -84,6 +84,7 @@
     background: linear-gradient(to top, colors.$YELLOW 50%, colors.$BG_D9 50%);
     background-size: 100% 200%;
     background-position: top;
+    user-select: none;
 
     &.fillColor {
       background-position: bottom;

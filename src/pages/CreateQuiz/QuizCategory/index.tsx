@@ -1,11 +1,16 @@
 import { useState } from 'react'
 import styles from './quizCategory.module.scss'
-import cx from 'classnames'
+import { cx } from 'styles'
 
-const QuizCategory = () => {
+interface Props {
+  getCategory: (value: string) => void
+}
+
+const QuizCategory = ({ getCategory }: Props) => {
   const [disabled, setDisabled] = useState(false)
-  const handleClickDisable = () => {
+  const handleClickCategory = (e: React.MouseEvent<HTMLButtonElement>) => {
     setDisabled((prev) => !prev)
+    getCategory(e.currentTarget.value)
   }
   return (
     <section className={styles.category}>
@@ -13,16 +18,16 @@ const QuizCategory = () => {
       <button
         type='button'
         className={cx(styles.personality, styles.button, { [styles.disabled]: disabled })}
-        disabled={!disabled}
-        onClick={handleClickDisable}
+        value='인성'
+        onClick={handleClickCategory}
       >
         인성 질문
       </button>
       <button
         type='button'
         className={cx(styles.technical, styles.button, { [styles.disabled]: !disabled })}
-        disabled={disabled}
-        onClick={handleClickDisable}
+        value='기술'
+        onClick={handleClickCategory}
       >
         기술 질문
       </button>
