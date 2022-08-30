@@ -21,8 +21,6 @@
       height: 66px;
     }
 
-    
-
     // 필수 질문으로 지정
     .essential {
       padding-bottom: 20px;
@@ -38,6 +36,7 @@
           height: 25px;
           border-radius: 5px;
           border: 2px solid colors.$BG_E9;
+          cursor: pointer;
 
           &:hover {
             border: 2px solid colors.$BG_D9;
@@ -60,8 +59,15 @@
           left: 3px;
           width: 15px;
           height: 15px;
-          background: colors.$SUB_BLUE;
           border-radius: 2.5px;
+        }
+
+        & .personality:after {
+          background: colors.$SUB_GREEN;
+        }
+
+        & .technical:after {
+          background: colors.$SUB_BLUE;
         }
       }
     }
