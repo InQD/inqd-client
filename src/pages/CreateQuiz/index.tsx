@@ -1,11 +1,20 @@
 import styles from './createQuiz.module.scss'
 import QuizTextarea from './QuizTextarea'
 import QuizCategory from './QuizCategory'
+import SettingHeader from 'components/SettingHeader'
 import { cx } from 'styles'
 import { useState } from 'react'
 
+import { useNavigate } from 'react-router-dom'
+
 const CreateQuiz = () => {
   const [category, setCategory] = useState('personality')
+  const navigate = useNavigate()
+
+  const handleClickSubmit = () => {
+    navigate('/setting')
+  }
+
   const getCategory = (value: string) => {
     switch (value) {
       case '인성':
@@ -30,7 +39,9 @@ const CreateQuiz = () => {
 
   return (
     <div className={styles.createQuiz}>
-      <header className={styles.header}>Header Area</header>
+      <header className={styles.header}>
+        <SettingHeader handleClickSubmit={handleClickSubmit} buttonText='추가' />
+      </header>
       <main className={styles.main}>
         <div className={styles.display}>Display Area</div>
         <QuizCategory getCategory={getCategory} />
