@@ -15,7 +15,7 @@ const INITIAL_STATE: SettingState = {
   todayPersonalNum: store.get('inqd.setting.todayPersonal') || 2,
   todayTechNum: store.get('inqd.setting.todayTech') || 3,
   timerToggle: store.get('inqd.setting.timerToggle') || false,
-  timerTime: 90,
+  timerTime: store.get('inqd.setting.timerTime') || 90,
 }
 
 const settingSlice = createSlice({

@@ -10,7 +10,15 @@ import Toggle from './__shared/Toggle'
 import Timer from './__shared/Timer'
 import Search from './__shared/Search'
 import QuizCard from 'components/QuizCard'
-import { getSearchValue, getTimerToggle, setTimerToggle, setTodayPersonalNum, setTodayTechNum } from 'states/setting'
+import {
+  getSearchValue,
+  getTimerTime,
+  getTimerToggle,
+  setTimerTime,
+  setTimerToggle,
+  setTodayPersonalNum,
+  setTodayTechNum,
+} from 'states/setting'
 
 import data from 'assets/json/interview_list.json'
 import { DownIcon, PlusIcon } from 'assets/svgs'
@@ -26,9 +34,11 @@ const QuizSetting = () => {
   const navigate = useNavigate()
   const searchValue = useSelector(getSearchValue)
   const timerToggleState = useSelector(getTimerToggle)
+  const timerTimeState = useSelector(getTimerTime)
 
   const [isDrop, setIsDrop] = useState<IsDrop>({ today: false, quiz: false })
   const [isTimerOpen, setIsTimerOpen] = useState(timerToggleState)
+  const [time, setTime] = useState(timerTimeState)
   const [todayPersonal, setTodayPersonal] = useState(2)
   const [todayTech, setTodayTech] = useState(3)
 
@@ -41,6 +51,7 @@ const QuizSetting = () => {
     dispatch(setTodayPersonalNum(todayPersonal))
     dispatch(setTodayTechNum(todayTech))
     dispatch(setTimerToggle(isTimerOpen))
+    dispatch(setTimerTime(time))
     navigate('/')
   }
 
@@ -53,12 +64,11 @@ const QuizSetting = () => {
     setIsTimerOpen((prev) => !prev)
   }
 
-  const timerLayout = useMemo(() => isTimerOpen && <Timer />, [isTimerOpen])
+  const timerLayout = useMemo(() => isTimerOpen && <Timer setTime={setTime} />, [isTimerOpen])
 
   return (
     <section className={styles.container}>
       <SettingHeader handleClickSubmit={handleClickSubmit} buttonText='저장' />
-
       <div className={styles.contents}>
         {/* -----Setting Timer----- */}
         <section className={styles.timer}>
@@ -68,7 +78,6 @@ const QuizSetting = () => {
             <Toggle activeToggle={activeToggleTimer} isCheckedState={isTimerOpen} />
           </div>
         </section>
-
         {/* -----Setting Today Quiz Count----- */}
         <section className={styles.todayQuizCount}>
           <div className={styles.settingBox}>
@@ -89,7 +98,6 @@ const QuizSetting = () => {
             <TodayCount setTodayPersonal={setTodayPersonal} setTodayTech={setTodayTech} />
           </div>
         </section>
-
         {/* -----Setting Edit Quiz----- */}
         <section className={styles.quizEdit}>
           <div className={styles.settingBox}>
@@ -106,11 +114,9 @@ const QuizSetting = () => {
               </button>
             </div>
           </div>
-
           <div className={cx(styles.settingBoxChild, { [styles.open]: isDrop.quiz })}>
             <Search />
           </div>
-
           <div className={cx(styles.settingBoxChild, { [styles.open]: isDrop.quiz })}>
             <div className={styles.searchAddWrapper}>
               <div className={styles.searchListBox}>
