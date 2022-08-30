@@ -10,7 +10,7 @@ import Toggle from './__shared/Toggle'
 import Timer from './__shared/Timer'
 import Search from './__shared/Search'
 import QuizCard from 'components/QuizCard'
-import { getSearchValue, setTodayPersonalNum, setTodayTechNum } from 'states/setting'
+import { getSearchValue, getTimerToggle, setTimerToggle, setTodayPersonalNum, setTodayTechNum } from 'states/setting'
 
 import data from 'assets/json/interview_list.json'
 import { DownIcon, PlusIcon } from 'assets/svgs'
@@ -24,12 +24,14 @@ interface IsDrop {
 const QuizSetting = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
+  const searchValue = useSelector(getSearchValue)
+  const timerToggleState = useSelector(getTimerToggle)
+
   const [isDrop, setIsDrop] = useState<IsDrop>({ today: false, quiz: false })
-  const [isTimerOpen, setIsTimerOpen] = useState(false)
+  const [isTimerOpen, setIsTimerOpen] = useState(timerToggleState)
   const [todayPersonal, setTodayPersonal] = useState(2)
   const [todayTech, setTodayTech] = useState(3)
 
-  const searchValue = useSelector(getSearchValue)
   const searchData = useMemo(
     () => (searchValue ? data.filter((item) => item.contents.toLowerCase().includes(searchValue)) : data),
     [searchValue]
@@ -38,6 +40,7 @@ const QuizSetting = () => {
   const handleClickSubmit = () => {
     dispatch(setTodayPersonalNum(todayPersonal))
     dispatch(setTodayTechNum(todayTech))
+    dispatch(setTimerToggle(isTimerOpen))
     navigate('/')
   }
 
@@ -50,6 +53,8 @@ const QuizSetting = () => {
     setIsTimerOpen((prev) => !prev)
   }
 
+  const timerLayout = useMemo(() => isTimerOpen && <Timer />, [isTimerOpen])
+
   return (
     <section className={styles.container}>
       <SettingHeader handleClickSubmit={handleClickSubmit} buttonText='저장' />
@@ -59,8 +64,8 @@ const QuizSetting = () => {
         <section className={styles.timer}>
           <div className={styles.settingBox}>
             <p>타이머 설정</p>
-            {isTimerOpen && <Timer />}
-            <Toggle activeToggle={activeToggleTimer} />
+            {timerLayout}
+            <Toggle activeToggle={activeToggleTimer} isCheckedState={isTimerOpen} />
           </div>
         </section>
 

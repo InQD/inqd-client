@@ -4,10 +4,11 @@ import styles from './toggle.module.scss'
 
 interface Props {
   activeToggle: () => void
+  isCheckedState: boolean
 }
 
-const Toggle = ({ activeToggle }: Props) => {
-  const [isChecked, setIsChecked] = useState(false)
+const Toggle = ({ activeToggle, isCheckedState }: Props) => {
+  const [isChecked, setIsChecked] = useState(isCheckedState)
 
   const handleChangeToggle = () => {
     setIsChecked((prev) => !prev)

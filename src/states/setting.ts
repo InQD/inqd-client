@@ -6,12 +6,16 @@ export interface SettingState {
   searchValue: string
   todayPersonalNum: number
   todayTechNum: number
+  timerToggle: boolean
+  timerTime: number
 }
 
 const INITIAL_STATE: SettingState = {
   searchValue: '',
   todayPersonalNum: store.get('inqd.setting.todayPersonal') || 2,
   todayTechNum: store.get('inqd.setting.todayTech') || 3,
+  timerToggle: store.get('inqd.setting.timerToggle') || false,
+  timerTime: 90,
 }
 
 const settingSlice = createSlice({
@@ -32,10 +36,21 @@ const settingSlice = createSlice({
       state.todayTechNum = action.payload
       store.set('inqd.setting.todayTech', state.todayTechNum)
     },
+
+    setTimerToggle: (state: SettingState, action: PayloadAction<boolean>) => {
+      state.timerToggle = action.payload
+      store.set('inqd.setting.timerToggle', state.timerToggle)
+    },
+
+    setTimerTime: (state: SettingState, action: PayloadAction<number>) => {
+      state.timerTime = action.payload
+      store.set('inqd.setting.timerTime', state.timerTime)
+    },
   },
 })
 
-export const { setSearchValue, setTodayPersonalNum, setTodayTechNum } = settingSlice.actions
+export const { setSearchValue, setTodayPersonalNum, setTodayTechNum, setTimerToggle, setTimerTime } =
+  settingSlice.actions
 
 export default settingSlice.reducer
 
@@ -44,3 +59,5 @@ export default settingSlice.reducer
 export const getSearchValue = (state: RootState): string => state.setting.searchValue
 export const getTodayPersonalNum = (state: RootState): number => state.setting.todayPersonalNum
 export const getTodayTechNum = (state: RootState): number => state.setting.todayTechNum
+export const getTimerToggle = (state: RootState): boolean => state.setting.timerToggle
+export const getTimerTime = (state: RootState): number => state.setting.timerTime
