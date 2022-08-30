@@ -23,7 +23,7 @@ const Timer = () => {
         type='number'
         name='minutes'
         className={styles.time}
-        value={minutes || ''}
+        value={minutes || '00'}
         min='0'
         max='60'
         placeholder='00'
@@ -34,7 +34,7 @@ const Timer = () => {
         type='number'
         name='seconds'
         className={styles.time}
-        value={seconds || ''}
+        value={seconds || '00'}
         min='0'
         max='60'
         step='5'
