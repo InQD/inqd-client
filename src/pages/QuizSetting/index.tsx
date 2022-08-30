@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react'
+import { NavLink } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import styles from './quizSetting.module.scss'
 
@@ -11,6 +12,7 @@ import QuizCard from 'components/QuizCard'
 import { getSearchValue } from 'states/setting'
 
 import data from 'assets/json/interview_list.json'
+import { PlusIcon } from 'assets/svgs'
 
 const QuizSetting = () => {
   const [isTimerOpen, setIsTimerOpen] = useState(false)
@@ -75,17 +77,27 @@ const QuizSetting = () => {
           </div>
 
           <div className={styles.settingBoxChild}>
-            <div className={styles.searchListBox}>
-              <div className={styles.listWrapper}>
-                {searchData.map((item) => {
-                  if (!item) return null
-                  return (
-                    <QuizCard key={item.id} category={item.category} isStar={item.isStar} src={`/editQuiz/${item.id}`}>
-                      {item.contents}
-                    </QuizCard>
-                  )
-                })}
+            <div className={styles.searchAddWrapper}>
+              <div className={styles.searchListBox}>
+                <div className={styles.listWrapper}>
+                  {searchData.map((item) => {
+                    if (!item) return null
+                    return (
+                      <QuizCard
+                        key={item.id}
+                        category={item.category}
+                        isStar={item.isStar}
+                        src={`/editQuiz/${item.id}`}
+                      >
+                        {item.contents}
+                      </QuizCard>
+                    )
+                  })}
+                </div>
               </div>
+              <NavLink to='/createQuiz' className={styles.addLink}>
+                <PlusIcon />
+              </NavLink>
             </div>
           </div>
         </section>

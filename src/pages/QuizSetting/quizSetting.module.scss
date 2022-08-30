@@ -47,14 +47,37 @@
     // }
 
     .quizEdit {
-      .searchListBox {
-        display: flex;
-        justify-content: center;
+      .searchAddWrapper {
+        position: relative;
 
-        .listWrapper {
-          height: 330px;
-          margin: 16px 0;
-          overflow: scroll;
+        .searchListBox {
+          display: flex;
+          justify-content: center;
+
+          .listWrapper {
+            height: 330px;
+            margin: 16px 0;
+            overflow: scroll;
+          }
+        }
+
+        .addLink {
+          position: absolute;
+          right: 20px;
+          bottom: 20px;
+          width: 38px;
+          height: 38px;
+
+          &:hover {
+            right: 18px;
+            bottom: 18px;
+            width: 42px;
+            height: 42px;
+          }
+
+          svg {
+            fill: colors.$SVG_80;
+          }
         }
       }
     }
