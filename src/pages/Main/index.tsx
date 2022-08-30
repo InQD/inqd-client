@@ -9,7 +9,6 @@ import data from 'assets/json/interview_list.json'
 
 import { NavLink } from 'react-router-dom'
 
-
 /**
  * @desc 인터뷰를 매개변수로 받아 스타일을 지정하는 유틸 함수
  *  */
