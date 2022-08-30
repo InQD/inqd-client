@@ -1,4 +1,5 @@
 @use '/src/styles/constants/colors';
+@use '/src/styles/mixins/animation';
 
 .container {
   height: 100%;
@@ -23,21 +24,48 @@
         color: colors.$MAIN_TEXT;
       }
 
-      span {
-        font-size: 12px;
-        color: colors.$MAIN_TEXT;
-      }
+      .rightWrapper {
+        display: flex;
+        align-items: center;
 
-      .dropdownToggle {
-        margin-left: 6px;
-        color: colors.$BG_B4;
+        span {
+          font-size: 12px;
+          line-height: 20px;
+          color: colors.$MAIN_TEXT;
+        }
+
+        .dropdownToggle {
+          width: 20px;
+          height: 20px;
+          margin-left: 6px;
+          color: colors.$BG_B4;
+
+          svg {
+            width: 14px;
+            height: 14px;
+            fill: colors.$BG_B4;
+            rotate: 90deg;
+          }
+        }
+
+        .upDown {
+          svg {
+            rotate: 270deg;
+          }
+        }
       }
     }
 
     .settingBoxChild {
+      display: none;
       margin-top: 16px;
       background-color: colors.$WHITE;
       border-radius: 10px;
+    }
+
+    .open {
+      display: block;
+      animation: fadeInDown 0.4s;
     }
 
     // .timer {
@@ -47,14 +75,31 @@
     // }
 
     .quizEdit {
-      .searchListBox {
-        display: flex;
-        justify-content: center;
+      .searchAddWrapper {
+        position: relative;
 
-        .listWrapper {
-          height: 330px;
-          margin: 16px 0;
-          overflow: scroll;
+        .searchListBox {
+          display: flex;
+          justify-content: center;
+        }
+
+        .addLink {
+          position: absolute;
+          right: 20px;
+          bottom: 20px;
+          width: 38px;
+          height: 38px;
+
+          &:hover {
+            right: 18px;
+            bottom: 18px;
+            width: 42px;
+            height: 42px;
+          }
+
+          svg {
+            fill: colors.$SVG_80;
+          }
         }
       }
     }
