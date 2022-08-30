@@ -58,7 +58,7 @@ const QuizSetting = () => {
           <div className={styles.settingBox}>
             <p>오늘의 면접 질문 개수</p>
             <div>
-              <span>10개</span>
+              <span>{todayPersonal + todayTech}개</span>
               <button type='button' className={styles.dropdownToggle} onClick={handleClickDropdown}>
                 ▼
               </button>
