@@ -12,7 +12,7 @@ interface Props {
   children: ReactNode
 }
 
-const QuizCard = ({ category, isStar, src, children }: Props) => {
+const QuizCard = ({ category, isStar, src = '', children }: Props) => {
   const navigate = useNavigate()
   const isStarText = isStar ? '필수' : ''
   const isGreen = category === '인성'
