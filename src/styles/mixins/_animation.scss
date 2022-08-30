@@ -12,3 +12,15 @@
     transform: rotate(359deg);
   }
 }
+
+@keyframes fadeInDown {
+  0% {
+    opacity: 1;
+    transform: translateY(-5%);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateZ(0);
+  }
+}

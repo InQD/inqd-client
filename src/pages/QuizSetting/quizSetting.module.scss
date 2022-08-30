@@ -1,4 +1,5 @@
 @use '/src/styles/constants/colors';
+@use '/src/styles/mixins/animation';
 
 .container {
   height: 100%;
@@ -23,21 +24,48 @@
         color: colors.$MAIN_TEXT;
       }
 
-      span {
-        font-size: 12px;
-        color: colors.$MAIN_TEXT;
-      }
+      .rightWrapper {
+        display: flex;
+        align-items: center;
 
-      .dropdownToggle {
-        margin-left: 6px;
-        color: colors.$BG_B4;
+        span {
+          font-size: 12px;
+          line-height: 20px;
+          color: colors.$MAIN_TEXT;
+        }
+
+        .dropdownToggle {
+          width: 20px;
+          height: 20px;
+          margin-left: 6px;
+          color: colors.$BG_B4;
+
+          svg {
+            width: 14px;
+            height: 14px;
+            fill: colors.$BG_B4;
+            rotate: 90deg;
+          }
+        }
+
+        .upDown {
+          svg {
+            rotate: 270deg;
+          }
+        }
       }
     }
 
     .settingBoxChild {
+      display: none;
       margin-top: 16px;
       background-color: colors.$WHITE;
       border-radius: 10px;
+    }
+
+    .open {
+      display: block;
+      animation: fadeInDown 0.4s;
     }
 
     // .timer {
