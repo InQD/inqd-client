@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import styles from './quizCategory.module.scss'
-import cx from 'classnames'
+import { cx } from 'styles'
 
 interface Props {
   getCategory: (value: string) => void
