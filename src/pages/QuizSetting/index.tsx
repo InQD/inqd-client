@@ -5,11 +5,11 @@ import { cx } from 'styles'
 import styles from './quizSetting.module.scss'
 
 import SettingHeader from 'components/SettingHeader'
+import SearchCardList from './item/SearchCardList'
 import TodayCount from './item/TodayCount'
 import Toggle from './__shared/Toggle'
 import Timer from './__shared/Timer'
 import Search from './__shared/Search'
-import QuizCard from 'components/QuizCard'
 import {
   getSearchValue,
   getTimerTime,
@@ -120,21 +120,7 @@ const QuizSetting = () => {
           <div className={cx(styles.settingBoxChild, { [styles.open]: isDrop.quiz })}>
             <div className={styles.searchAddWrapper}>
               <div className={styles.searchListBox}>
-                <div className={styles.listWrapper}>
-                  {searchData.map((item) => {
-                    if (!item) return null
-                    return (
-                      <QuizCard
-                        key={item.id}
-                        category={item.category}
-                        isStar={item.isStar}
-                        src={`/editQuiz/${item.id}`}
-                      >
-                        {item.contents}
-                      </QuizCard>
-                    )
-                  })}
-                </div>
+                <SearchCardList searchData={searchData} />
               </div>
               <NavLink to='/createQuiz' className={styles.addLink}>
                 <PlusIcon />
