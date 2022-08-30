@@ -1,19 +1,22 @@
 import { useState } from 'react'
 import styles from './main.module.scss'
-import cx from 'classnames'
+import { cx } from 'styles'
 
 import { SettingIcon, UpArrowIcon } from 'assets/svgs'
 import logoImg from '../../assets/images/logo.png'
+
+import data from 'assets/json/interview_list.json'
+
 import { NavLink } from 'react-router-dom'
 
 /**
  * @desc 인터뷰를 매개변수로 받아 스타일을 지정하는 유틸 함수
  *  */
-const getAnimation = (interview: boolean | null) => {
+const getAnimation = (interview: Object | null) => {
   switch (interview) {
     case null:
       return styles.fadein
-    case true:
+    case interview:
       return styles.fadeout
     default:
       throw new Error(`unknown info : ${interview}`)
@@ -22,13 +25,13 @@ const getAnimation = (interview: boolean | null) => {
 
 const Main = () => {
   // 기능 확장시 setInterviewQuestions 사용
-  const [interviewQuestions] = useState(null)
+  const [interviewQuestions] = useState(data)
   const haveQuestion = interviewQuestions ?? null
 
   return (
     <section className={styles.main}>
       <header className={styles.header}>
-        <div className={cx(styles.floatingMessage, getAnimation(haveQuestion))}>
+        <div className={cx(styles.floatingMessage, getAnimation(interviewQuestions))}>
           <p>
             면접 질문이 없어요! <br />
             설정에서 질문을 등록해주세요.
