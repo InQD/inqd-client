@@ -1,12 +1,22 @@
-import { ChangeEvent, useMemo, useState } from 'react'
-import styles from './todayCount.module.scss'
+import { ChangeEvent, Dispatch, useEffect, useMemo, useState } from 'react'
+import { useSelector } from 'react-redux'
 import { cx } from 'styles'
+import styles from './todayCount.module.scss'
 
 import { maxLengthCheck, personalQuizCount, techQuizCount } from 'utils/settingUtil'
+import { getTodayPersonalNum, getTodayTechNum } from 'states/setting'
 
-const TodayCount = () => {
-  const [todayPersonalCount, setTodayPersonalCount] = useState(2)
-  const [todayTechCount, setTodayTechCount] = useState(3)
+interface Props {
+  setTodayPersonal: Dispatch<React.SetStateAction<number>>
+  setTodayTech: Dispatch<React.SetStateAction<number>>
+}
+
+const TodayCount = ({ setTodayPersonal, setTodayTech }: Props) => {
+  const todayPersonalNum = useSelector(getTodayPersonalNum)
+  const todayTechNum = useSelector(getTodayTechNum)
+
+  const [todayPersonalCount, setTodayPersonalCount] = useState(todayPersonalNum)
+  const [todayTechCount, setTodayTechCount] = useState(todayTechNum)
 
   const personalAllCount = useMemo(() => personalQuizCount(), [])
   const techAllCount = useMemo(() => techQuizCount(), [])
@@ -35,6 +45,11 @@ const TodayCount = () => {
     maxLengthCheck(e.target)
   }
 
+  useEffect(() => {
+    setTodayPersonal(todayPersonalCount)
+    setTodayTech(todayTechCount)
+  }, [setTodayPersonal, setTodayTech, todayPersonalCount, todayTechCount])
+
   return (
     <div className={styles.todayButtonWrapper}>
       <div>
@@ -47,7 +62,7 @@ const TodayCount = () => {
           className={styles.quizCountInput}
           min={0}
           max={personalAllCount}
-          value={todayPersonalCount || ''}
+          value={todayPersonalCount || '0'}
           maxLength={personalAllCount}
           onInput={handleInputMaxLength}
           onChange={handleChangePersonalInput}
@@ -63,7 +78,7 @@ const TodayCount = () => {
           className={styles.quizCountInput}
           min={0}
           max={techAllCount}
-          value={todayTechCount || ''}
+          value={todayTechCount || '0'}
           maxLength={5}
           onInput={handleInputMaxLength}
           onChange={handleChangeTechInput}

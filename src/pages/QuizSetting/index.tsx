@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react'
-import { NavLink } from 'react-router-dom'
-import { useSelector } from 'react-redux'
+import { NavLink, useNavigate } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
 import styles from './quizSetting.module.scss'
 
 import SettingHeader from 'components/SettingHeader'
@@ -9,20 +9,29 @@ import Toggle from './__shared/Toggle'
 import Timer from './__shared/Timer'
 import Search from './__shared/Search'
 import QuizCard from 'components/QuizCard'
-import { getSearchValue } from 'states/setting'
+import { getSearchValue, setTodayPersonalNum, setTodayTechNum } from 'states/setting'
 
 import data from 'assets/json/interview_list.json'
 import { PlusIcon } from 'assets/svgs'
 
 const QuizSetting = () => {
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
   const [isTimerOpen, setIsTimerOpen] = useState(false)
+  const [todayPersonal, setTodayPersonal] = useState(2)
+  const [todayTech, setTodayTech] = useState(3)
+
   const searchValue = useSelector(getSearchValue)
   const searchData = useMemo(
     () => (searchValue ? data.filter((item) => item.contents.toLowerCase().includes(searchValue)) : data),
     [searchValue]
   )
 
-  const handleClickSubmit = () => {}
+  const handleClickSubmit = () => {
+    dispatch(setTodayPersonalNum(todayPersonal))
+    dispatch(setTodayTechNum(todayTech))
+    navigate('/')
+  }
 
   const handleClickDropdown = () => {}
 
@@ -56,7 +65,7 @@ const QuizSetting = () => {
             </div>
           </div>
           <div className={styles.settingBoxChild}>
-            <TodayCount />
+            <TodayCount setTodayPersonal={setTodayPersonal} setTodayTech={setTodayTech} />
           </div>
         </section>
 
@@ -65,7 +74,7 @@ const QuizSetting = () => {
           <div className={styles.settingBox}>
             <p>면접 질문 편집</p>
             <div>
-              <span>총 10개</span>
+              <span>총 {data.length}개</span>
               <button type='button' className={styles.dropdownToggle} onClick={handleClickDropdown}>
                 ▼
               </button>
