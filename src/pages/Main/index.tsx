@@ -4,6 +4,7 @@ import cx from 'classnames'
 
 import { SettingIcon, UpArrowIcon } from 'assets/svgs'
 import logoImg from '../../assets/images/logo.png'
+import { NavLink } from 'react-router-dom'
 
 /**
  * @desc 인터뷰를 매개변수로 받아 스타일을 지정하는 유틸 함수
@@ -23,6 +24,7 @@ const Main = () => {
   // 기능 확장시 setInterviewQuestions 사용
   const [interviewQuestions] = useState(null)
   const haveQuestion = interviewQuestions ?? null
+
   return (
     <section className={styles.main}>
       <header className={styles.header}>
@@ -33,8 +35,9 @@ const Main = () => {
           </p>
           <UpArrowIcon className={styles.upArrowIcon} />
         </div>
-
-        <SettingIcon className={styles.settingIcon} />
+        <NavLink to='setting'>
+          <SettingIcon className={styles.settingIcon} />
+        </NavLink>
       </header>
 
       <main className={cx(styles.logoInfo, { [styles.fillColor]: haveQuestion })}>
