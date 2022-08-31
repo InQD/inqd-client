@@ -12,12 +12,12 @@ import { NavLink } from 'react-router-dom'
 /**
  * @desc 인터뷰를 매개변수로 받아 스타일을 지정하는 유틸 함수
  *  */
-const getAnimation = (interview: Object | null) => {
+const getAnimation = (interview: Object | boolean) => {
   switch (interview) {
-    case null:
+    case false:
       return styles.fadein
     case interview:
-      return styles.fadeout
+      return ''
     default:
       throw new Error(`unknown info : ${interview}`)
   }
@@ -26,18 +26,19 @@ const getAnimation = (interview: Object | null) => {
 const Main = () => {
   // 기능 확장시 setInterviewQuestions 사용
   const [interviewQuestions] = useState(data)
-  const haveQuestion = interviewQuestions ?? null
+  const haveQuestion = interviewQuestions ?? false
 
   return (
     <section className={styles.main}>
       <header className={styles.header}>
-        <div className={cx(styles.floatingMessage, getAnimation(interviewQuestions))}>
+        <div className={cx(styles.floatingMessage, getAnimation(haveQuestion))}>
           <p>
             면접 질문이 없어요! <br />
             설정에서 질문을 등록해주세요.
           </p>
           <UpArrowIcon className={styles.upArrowIcon} />
         </div>
+
         <NavLink to='setting'>
           <SettingIcon className={styles.settingIcon} />
         </NavLink>
