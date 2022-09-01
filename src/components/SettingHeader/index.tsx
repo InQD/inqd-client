@@ -1,5 +1,5 @@
 import { ReactNode } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import styles from './settingHeader.module.scss'
 
 import { LeftArrowIcon } from 'assets/svgs'
@@ -7,19 +7,15 @@ import { LeftArrowIcon } from 'assets/svgs'
 interface Props {
   handleClickSubmit: () => void
   buttonText: ReactNode
+  src?: string
 }
 
-const SettingHeader = ({ handleClickSubmit, buttonText }: Props) => {
-  const navigate = useNavigate()
-
-  const handleClickPrevPage = () => {
-    navigate(-1)
-  }
+const SettingHeader = ({ handleClickSubmit, buttonText, src = '/setting' }: Props) => {
   return (
     <div className={styles.container}>
-      <button type='button' className={styles.leftArrow} onClick={handleClickPrevPage}>
+      <NavLink to={src} className={styles.leftArrow}>
         <LeftArrowIcon />
-      </button>
+      </NavLink>
       <button type='button' className={styles.saveButton} onClick={handleClickSubmit}>
         {buttonText}
       </button>

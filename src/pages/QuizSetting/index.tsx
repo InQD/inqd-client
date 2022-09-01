@@ -68,7 +68,7 @@ const QuizSetting = () => {
 
   return (
     <section className={styles.container}>
-      <SettingHeader handleClickSubmit={handleClickSubmit} buttonText='저장' />
+      <SettingHeader src='/' handleClickSubmit={handleClickSubmit} buttonText='저장' />
       <div className={styles.contents}>
         {/* -----Setting Timer----- */}
         <section className={styles.timer}>
