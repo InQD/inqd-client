@@ -8,21 +8,21 @@ import { RightArrowIcon2 } from 'assets/svgs'
 interface Props {
   category: string
   isStar: boolean
-  src: string
+  src?: string
   children: ReactNode
 }
 
-const QuizCard = ({ category, isStar, src = '', children }: Props) => {
+const QuizCard = ({ category, isStar, src, children }: Props) => {
   const navigate = useNavigate()
   const isStarText = isStar ? '필수' : ''
   const isGreen = category === '인성'
 
   const handleClickNavigate = () => {
-    navigate(src)
+    if (src) navigate(src)
   }
 
   return (
-    <button type='button' className={styles.card} onClick={handleClickNavigate}>
+    <button type='button' className={styles.card} onClick={handleClickNavigate} disabled={!src}>
       <div className={cx(styles.point, { [styles.isGreen]: isGreen })}>{isStarText}</div>
       <p>{children}</p>
       <span className={styles.rightArrow}>
