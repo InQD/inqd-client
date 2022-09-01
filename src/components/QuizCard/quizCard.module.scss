@@ -31,12 +31,15 @@
   }
 
   p {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
     width: 232px;
+    height: 40px;
     overflow: hidden;
     font-size: 14px;
     color: colors.$MAIN_TEXT;
     text-align: left;
-    text-overflow: ellipsis;
   }
 
   .rightArrow {
