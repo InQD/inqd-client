@@ -26,17 +26,10 @@
     background: colors.$MAIN_GREEN;
     margin-right: 8px;
     transition: background linear 0.3s;
-
-    &:hover {
-      background: colors.$MAIN_GREEN;
-    }
   }
 
   .technical {
     background: colors.$MAIN_BLUE;
     transition: background linear 0.3s;
-    &:hover {
-      background: colors.$MAIN_BLUE;
-    }
   }
 }
