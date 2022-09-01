@@ -1,6 +1,6 @@
 @use '/src/styles/constants/colors';
 
-// 등장 애니메이션 : 페이드인 / 페이드 아웃
+// 등장 애니메이션 : 페이드인
 @keyframes fadein {
   from {
     opacity: 0;
@@ -12,14 +12,13 @@
   }
 }
 
-@keyframes fadeout {
+@keyframes fill-color {
   from {
-    opacity: 1;
+    background-position: top;
   }
 
   to {
-    opacity: 0;
-    transform: translateY(20px);
+    background-position: bottom;
   }
 }
 
@@ -44,14 +43,10 @@
       position: relative;
       top: 20px;
       left: 10px;
-
+      opacity: 0;
       &.fadein {
-        animation: fadein 0.5s;
-      }
-
-      &.fadeout {
-        opacity: 0;
-        animation: fadeout 0.5s;
+        opacity: 100;
+        animation: fadein 0.5s both;
       }
     }
 
@@ -80,14 +75,12 @@
     border-radius: 15px;
     margin: auto;
     background: colors.$BG_D9;
-    transition: all ease 0.5s;
     background: linear-gradient(to top, colors.$YELLOW 50%, colors.$BG_D9 50%);
     background-size: 100% 200%;
-    background-position: top;
     user-select: none;
 
     &.fillColor {
-      background-position: bottom;
+      animation: fill-color ease-in-out 1s both;
     }
 
     .logoTitle {
@@ -126,13 +119,11 @@
     line-height: 64px;
     text-align: center;
     color: colors.$MAIN_TEXT;
-    transition: all ease 0.5s;
     background: linear-gradient(to top, colors.$YELLOW 50%, colors.$BG_B4 50%);
     background-size: 100% 200%;
-    background-position: top;
 
     &.fillColor {
-      background-position: bottom;
+      animation: fill-color ease-in-out 1s both;
     }
 
     button {
