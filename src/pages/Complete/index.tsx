@@ -1,13 +1,12 @@
-import { useMemo } from 'react'
 import { useNavigate } from 'react-router-dom'
 import styles from './complete.module.scss'
 
 import QuizCard from 'components/QuizCard'
-import { getTodayDate, getTodayDay } from 'utils/date'
+import { getTodayDate, getTodayDay } from 'utils/complete'
 
 import { HomeIcon } from 'assets/svgs'
 
-interface IProps {}
+// interface IProps {}
 
 const Complete = () => {
   const navigate = useNavigate()
