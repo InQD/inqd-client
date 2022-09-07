@@ -76,7 +76,7 @@
     margin: auto;
     user-select: none;
     background: colors.$BG_D9;
-    background: linear-gradient(to top, colors.$YELLOW 50%, colors.$BG_D9 50%);
+    background: linear-gradient(to top, colors.$MAIN_YELLOW 50%, colors.$WHITE 50%);
     background-size: 100% 200%;
     border-radius: 15px;
 
@@ -120,7 +120,7 @@
     color: colors.$MAIN_TEXT;
     text-align: center;
     background: colors.$BG_B4;
-    background: linear-gradient(to top, colors.$YELLOW 50%, colors.$BG_B4 50%);
+    background: linear-gradient(to top, colors.$SUB_YELLOW 50%, colors.$WHITE 50%);
     background-size: 100% 200%;
     border-radius: 15px;
 
