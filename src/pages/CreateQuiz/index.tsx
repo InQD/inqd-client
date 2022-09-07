@@ -61,19 +61,22 @@ const CreateQuiz = () => {
             {text}
           </QuizCard>
         </div>
-        <QuizCategory getCategory={getCategory} />
+        <div className={styles.condition}>
+          {/* 카테고리 지정 */}
+          <QuizCategory getCategory={getCategory} />
 
-        {/* 필수질문 지정 */}
-        <section className={styles.essential}>
-          <label className={styles.essentialLabel}>
-            필수 질문으로 지정
-            <input type='checkbox' name='essential-question' onClick={handleClickIsStar} />
-            <div className={cx(styles.checkmark, getStyles())} />
-          </label>
-        </section>
+          {/* 필수질문 지정 */}
+          <section className={styles.essential}>
+            <label className={styles.essentialLabel}>
+              필수 질문으로 지정
+              <input type='checkbox' name='essential-question' onClick={handleClickIsStar} />
+              <div className={cx(styles.checkmark, getStyles())} />
+            </label>
+          </section>
 
-        {/* 문제 텍스트 에어리어 */}
-        <QuizTextarea getText={getText} />
+          {/* 문제 텍스트 에어리어 */}
+          <QuizTextarea getText={getText} />
+        </div>
       </main>
     </div>
   )

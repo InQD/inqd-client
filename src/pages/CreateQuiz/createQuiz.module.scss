@@ -3,7 +3,7 @@
 .createQuiz {
   width: 100%;
   min-height: 100%;
-  padding: 20px;
+  padding: 30px 16px;
   background: colors.$BG_F5;
 
   .header {
@@ -13,13 +13,17 @@
 
   .main {
     width: 100%;
-    padding: 16px;
+    padding: 14px;
     font-size: 18px;
     background: colors.$WHITE;
     border-radius: 20px;
 
     .display {
       height: 66px;
+    }
+
+    .condition {
+      margin: 28px 16px;
     }
 
     // 필수 질문으로 지정
