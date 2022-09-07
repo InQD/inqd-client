@@ -3,7 +3,7 @@
 .createQuiz {
   width: 100%;
   min-height: 100%;
-  padding: 20px;
+  padding: 30px 16px;
   background: colors.$BG_F5;
 
   .header {
@@ -13,13 +13,17 @@
 
   .main {
     width: 100%;
+    padding: 14px;
+    font-size: 18px;
     background: colors.$WHITE;
     border-radius: 20px;
-    padding: 16px;
-    font-size: 18px;
 
     .display {
       height: 66px;
+    }
+
+    .condition {
+      margin: 28px 16px;
     }
 
     // 필수 질문으로 지정
@@ -28,46 +32,43 @@
 
       .essentialLabel {
         display: flex;
-        justify-content: space-between;
         align-items: center;
+        justify-content: space-between;
         user-select: none;
 
         .checkmark {
           width: 25px;
           height: 25px;
-          border-radius: 5px;
-          border: 2px solid colors.$BG_E9;
           cursor: pointer;
+          border: 2px solid colors.$BG_E9;
+          border-radius: 5px;
 
           &:hover {
             border: 2px solid colors.$BG_D9;
           }
         }
 
-        .checkmark:after {
-          content: '';
+        .checkmark::after {
           position: relative;
+          top: 3px;
+          left: 3px;
           display: none;
+          width: 15px;
+          height: 15px;
+          content: '';
+          border-radius: 2.5px;
           transition: all 1s;
         }
 
-        & input[type='checkbox']:checked ~ .checkmark:after {
+        & input[type='checkbox']:checked ~ .checkmark::after {
           display: block;
         }
 
-        & .checkmark:after {
-          top: 3px;
-          left: 3px;
-          width: 15px;
-          height: 15px;
-          border-radius: 2.5px;
-        }
-
-        & .personality:after {
+        & .personality::after {
           background: colors.$SUB_GREEN;
         }
 
-        & .technical:after {
+        & .technical::after {
           background: colors.$SUB_BLUE;
         }
       }
