@@ -12,7 +12,7 @@
   }
 }
 
-@keyframes fill-color {
+@keyframes fillColor {
   from {
     background-position: top;
   }
@@ -27,8 +27,8 @@
   flex-direction: column;
   width: 100%;
   height: 100%;
-  color: colors.$MAIN_TEXT;
   padding: 20px;
+  color: colors.$MAIN_TEXT;
   border: 1px solid #d9d9d9;
 
   //  Header
@@ -39,11 +39,12 @@
 
     // Floating Message
     .floatingMessage {
-      display: flex;
       position: relative;
       top: 20px;
       left: 10px;
+      display: flex;
       opacity: 0;
+
       &.fadein {
         opacity: 100;
         animation: fadein 0.5s both;
@@ -51,11 +52,11 @@
     }
 
     p {
-      font-weight: 500;
       font-size: 18px;
+      font-weight: 500;
       line-height: 1.2;
-      letter-spacing: 0.8px;
       color: colors.$SUB_TEXT;
+      letter-spacing: 0.8px;
     }
 
     .settingIcon {
@@ -68,24 +69,24 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
     align-items: center;
+    justify-content: flex-start;
     width: 330px;
     height: 250px;
-    border-radius: 15px;
     margin: auto;
-    background: colors.$BG_D9;
-    background: linear-gradient(to top, colors.$YELLOW 50%, colors.$BG_D9 50%);
-    background-size: 100% 200%;
     user-select: none;
+    background: colors.$BG_D9;
+    background: linear-gradient(to top, colors.$MAIN_YELLOW 50%, colors.$WHITE 50%);
+    background-size: 100% 200%;
+    border-radius: 15px;
 
     &.fillColor {
-      animation: fill-color ease-in-out 1s both;
+      animation: fillColor ease-in-out 1s both;
     }
 
     .logoTitle {
-      transform: translateY(50%);
       font-weight: 700;
+      transform: translateY(50%);
 
       .topText {
         padding-bottom: 20px;
@@ -100,6 +101,7 @@
         font-size: 16px;
       }
     }
+
     .logo {
       position: absolute;
       right: -10px;
@@ -113,22 +115,22 @@
   .footer {
     width: 330px;
     height: 64px;
-    border-radius: 15px;
     margin: 0 auto;
-    background: colors.$BG_B4;
     line-height: 64px;
-    text-align: center;
     color: colors.$MAIN_TEXT;
-    background: linear-gradient(to top, colors.$YELLOW 50%, colors.$BG_B4 50%);
+    text-align: center;
+    background: colors.$BG_B4;
+    background: linear-gradient(to top, colors.$SUB_YELLOW 50%, colors.$WHITE 50%);
     background-size: 100% 200%;
+    border-radius: 15px;
 
     &.fillColor {
-      animation: fill-color ease-in-out 1s both;
+      animation: fillColor ease-in-out 1s both;
     }
 
     button {
-      font-weight: 700;
       font-size: 20px;
+      font-weight: 700;
     }
   }
 }
