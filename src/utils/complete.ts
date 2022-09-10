@@ -1,13 +1,13 @@
 import { IQuizList, ITodayQuizList } from 'types/quiz'
 
+// 날짜 추출 함수
 export const getTodayDate = () => {
   return new Date().toLocaleDateString()
 }
 
+// 요일 추출 함수
 export const getTodayDay = () => {
-  const week = ['일', '월', '화', '수', '목', '금', '토']
-  const num = new Date().getDay()
-  return week[num]
+  return ['일', '월', '화', '수', '목', '금', '토'][new Date().getDay()]
 }
 
 // 랜덤 데이터 추출 함수 (제한된 퀴즈목록, 총 뽑을 개수)
@@ -28,7 +28,7 @@ export const getRandomData = (data: IQuizList[], count: number) => {
   return array
 }
 
-// 오늘의 질문 추출. 면접 시작을 눌렀을때 최초 한번 실행. store에 저장 후 그 데이터로 사용.
+// 오늘의 질문 추출 함수. 면접 시작을 눌렀을때 최초 한번 실행. store에 저장 후 그 데이터로 사용.
 export const getTodayQuizList = (data: IQuizList[], todayPNum: number, todayTNum: number) => {
   const resultArray: ITodayQuizList[] = []
 
