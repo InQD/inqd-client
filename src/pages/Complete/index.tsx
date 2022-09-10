@@ -2,11 +2,11 @@ import { useNavigate } from 'react-router-dom'
 import styles from './complete.module.scss'
 
 import QuizCard from 'components/QuizCard'
-import { getTodayDate, getTodayDay } from 'utils/complete'
+import { getTodayDate, getTodayDay, getTodayQuizList } from 'utils/complete'
 
 import { HomeIcon } from 'assets/svgs'
 
-// interface IProps {}
+import data from 'assets/json/interview_list.json'
 
 const Complete = () => {
   const navigate = useNavigate()
@@ -16,6 +16,8 @@ const Complete = () => {
   const handleClickHome = () => {
     navigate('/')
   }
+
+  const completeData = getTodayQuizList(data, 2, 3)
 
   return (
     <div className={styles.container}>
@@ -28,9 +30,11 @@ const Complete = () => {
           </p>
         </header>
         <div className={styles.contentsWrapper}>
-          <QuizCard category='인성' isStar>
-            var let const의 차이점에 대해 설명해주세요.
-          </QuizCard>
+          {completeData.map((item) => (
+            <QuizCard key={item.id} category={item.category} isStar={item.isStar}>
+              {item.contents}
+            </QuizCard>
+          ))}
         </div>
       </div>
       <footer className={styles.completeFooter}>
