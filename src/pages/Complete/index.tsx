@@ -1,23 +1,25 @@
 import { useNavigate } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 import styles from './complete.module.scss'
 
+import { getTodayDate, getTodayDay } from 'utils/complete'
 import QuizCard from 'components/QuizCard'
-import { getTodayDate, getTodayDay, getTodayQuizList } from 'utils/complete'
+import { getTodayQuiz } from 'states/quiz'
 
 import { HomeIcon } from 'assets/svgs'
-
 import data from 'assets/json/interview_list.json'
 
 const Complete = () => {
   const navigate = useNavigate()
   const todayDate = getTodayDate()
   const todayDay = getTodayDay()
+  const todayQuizNumList = useSelector(getTodayQuiz)
 
   const handleClickHome = () => {
     navigate('/')
   }
 
-  const completeData = getTodayQuizList(data, 2, 3)
+  const todayQuizList = data.filter((item) => todayQuizNumList.includes(item.id))
 
   return (
     <div className={styles.container}>
@@ -30,7 +32,7 @@ const Complete = () => {
           </p>
         </header>
         <div className={styles.contentsWrapper}>
-          {completeData.map((item) => (
+          {todayQuizList.map((item) => (
             <QuizCard key={item.id} category={item.category} isStar={item.isStar}>
               {item.contents}
             </QuizCard>
