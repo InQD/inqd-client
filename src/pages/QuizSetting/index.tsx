@@ -2,6 +2,7 @@ import { useMemo, useState, MouseEvent } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { cx } from 'styles'
+import store from 'store'
 import styles from './quizSetting.module.scss'
 
 import SettingHeader from 'components/SettingHeader'
@@ -62,6 +63,16 @@ const QuizSetting = () => {
 
   const activeToggleTimer = () => {
     setIsTimerOpen((prev) => !prev)
+  }
+
+  const handleClickClearAll = () => {
+    store.remove('inqd.setting.todayPersonal')
+    store.remove('inqd.setting.timerToggle')
+    store.remove('inqd.setting.timerTime')
+    store.remove('inqd.setting.todayTech')
+    store.remove('inqd.quiz.todayQuiz')
+    navigate('/')
+    window.location.reload()
   }
 
   const timerLayout = useMemo(() => isTimerOpen && <Timer setTime={setTime} />, [isTimerOpen])
@@ -127,6 +138,12 @@ const QuizSetting = () => {
               </NavLink>
             </div>
           </div>
+        </section>
+        {/* -----Setting Delete All Cache----- */}
+        <section className={styles.clearAll}>
+          <button type='button' className={styles.clearAllButton} onClick={handleClickClearAll}>
+            모든 설정 초기화
+          </button>
         </section>
       </div>
     </section>
