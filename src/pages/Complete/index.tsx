@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import styles from './complete.module.scss'
 
-import { getTodayDate, getTodayDay } from 'utils/complete'
+import { getSortedTodayQuizList, getTodayDate, getTodayDay } from 'utils/complete'
 import QuizCard from 'components/QuizCard'
 import { getTodayQuiz } from 'states/quiz'
 
@@ -20,6 +20,13 @@ const Complete = () => {
   }
 
   const todayQuizList = data.filter((item) => todayQuizNumList.includes(item.id))
+  const sortTodayQuizList = getSortedTodayQuizList(todayQuizList)
+  const relocateTodayQuizList = [
+    ...sortTodayQuizList.starP,
+    ...sortTodayQuizList.nStarP,
+    ...sortTodayQuizList.starT,
+    ...sortTodayQuizList.nStarT,
+  ]
 
   return (
     <div className={styles.container}>
@@ -32,7 +39,7 @@ const Complete = () => {
           </p>
         </header>
         <div className={styles.contentsWrapper}>
-          {todayQuizList.map((item) => (
+          {relocateTodayQuizList.map((item) => (
             <QuizCard key={item.id} category={item.category} isStar={item.isStar}>
               {item.contents}
             </QuizCard>

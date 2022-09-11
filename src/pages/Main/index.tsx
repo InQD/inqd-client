@@ -8,7 +8,7 @@ import logoImg from '../../assets/images/logo.png'
 import data from 'assets/json/interview_list.json'
 
 import { NavLink, useNavigate } from 'react-router-dom'
-import { getTodayQuizList } from 'utils/complete'
+import { getTotalTodayQuizList } from 'utils/complete'
 import { useDispatch, useSelector } from 'react-redux'
 import { getTodayPersonalNum, getTodayTechNum } from 'states/setting'
 import { ITodayQuizList } from 'types/quiz'
@@ -45,7 +45,7 @@ const Main = () => {
   }
 
   useEffect(() => {
-    setCompleteData(getTodayQuizList(data, todayPersonalNum, todayTechNum))
+    setCompleteData(getTotalTodayQuizList(data, todayPersonalNum, todayTechNum))
   }, [todayPersonalNum, todayTechNum])
 
   return (

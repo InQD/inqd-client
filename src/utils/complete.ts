@@ -28,31 +28,41 @@ export const getRandomData = (data: IQuizList[], count: number) => {
   return array
 }
 
-// 오늘의 질문 추출 함수. 면접 시작을 눌렀을때 최초 한번 실행. store에 저장 후 그 데이터로 사용.
-export const getTodayQuizList = (data: IQuizList[], todayPNum: number, todayTNum: number) => {
-  const resultArray: ITodayQuizList[] = []
-
+// 오늘의 퀴즈 리스트 (1/2) 조건 추출 함수. 인성/기술/필수 조건에 따라 정리됨
+export const getSortedTodayQuizList = (data: IQuizList[]) => {
   const personalData = data.filter((item) => item.category === '인성')
   const starPersonalData = personalData.filter((item) => item.isStar)
   const notStarPersonalData = personalData.filter((item) => !item.isStar)
-  const starPLen = starPersonalData.length
-  if (todayPNum <= starPLen) {
-    resultArray.push(...getRandomData(starPersonalData, todayPNum))
-  } else {
-    resultArray.push(
-      ...getRandomData(starPersonalData, starPLen),
-      ...getRandomData(notStarPersonalData, todayPNum - starPLen)
-    )
-  }
-
   const techData = data.filter((item) => item.category === '기술')
   const starTechData = techData.filter((item) => item.isStar)
   const notStarTechData = techData.filter((item) => !item.isStar)
-  const starTLen = starTechData.length
-  if (todayTNum <= starTLen) {
-    resultArray.push(...getRandomData(starTechData, todayTNum))
+
+  return { starP: starPersonalData, nStarP: notStarPersonalData, starT: starTechData, nStarT: notStarTechData }
+}
+
+// 오늘의 퀴즈 리스트 (2/2) 제한된 개수 랜덤 추출 함수. 설정값에 따라 추출됨.
+export const getTotalTodayQuizList = (data: IQuizList[], todayPNum: number, todayTNum: number) => {
+  const sortedData = getSortedTodayQuizList(data)
+  const resultArray: ITodayQuizList[] = []
+  const starPLen = sortedData.starP.length
+  const starTLen = sortedData.starT.length
+
+  if (todayPNum <= starPLen) {
+    resultArray.push(...getRandomData(sortedData.starP, todayPNum))
   } else {
-    resultArray.push(...getRandomData(starTechData, starTLen), ...getRandomData(notStarTechData, todayTNum - starTLen))
+    resultArray.push(
+      ...getRandomData(sortedData.starP, starPLen),
+      ...getRandomData(sortedData.nStarP, todayPNum - starPLen)
+    )
+  }
+
+  if (todayTNum <= starTLen) {
+    resultArray.push(...getRandomData(sortedData.starT, todayTNum))
+  } else {
+    resultArray.push(
+      ...getRandomData(sortedData.starT, starTLen),
+      ...getRandomData(sortedData.nStarT, todayTNum - starTLen)
+    )
   }
 
   return resultArray
