@@ -1,0 +1,46 @@
+@use '/src/styles/constants/colors';
+
+.container {
+  height: 100%;
+  background-color: colors.$BG_F5;
+
+  .top {
+    padding: 54px 30px;
+
+    .completeHeader {
+      text-align: center;
+
+      .title {
+        padding: 5px;
+        font-size: 24px;
+        font-weight: bold;
+        color: colors.$MAIN_TEXT;
+      }
+
+      .date {
+        padding: 5px;
+        font-size: 16px;
+        color: colors.$MAIN_TEXT;
+      }
+    }
+
+    .contentsWrapper {
+      height: 500px;
+      margin-top: 42px;
+      overflow: scroll;
+    }
+  }
+
+  .completeFooter {
+    position: fixed;
+    bottom: 0;
+    padding: 48px 177px;
+    background-color: colors.$WHITE;
+
+    .homeButton {
+      width: 36px;
+      height: 36px;
+      fill: colors.$SVG_96;
+    }
+  }
+}

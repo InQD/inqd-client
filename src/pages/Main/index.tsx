@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import styles from './main.module.scss'
 import { cx } from 'styles'
 
@@ -7,7 +7,12 @@ import logoImg from '../../assets/images/logo.png'
 
 import data from 'assets/json/interview_list.json'
 
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
+import { getTotalTodayQuizList } from 'utils/complete'
+import { useDispatch, useSelector } from 'react-redux'
+import { getTodayPersonalNum, getTodayTechNum } from 'states/setting'
+import { ITodayQuizList } from 'types/quiz'
+import { setTodayQuiz } from 'states/quiz'
 
 /**
  * @desc 인터뷰를 매개변수로 받아 스타일을 지정하는 유틸 함수
@@ -25,8 +30,23 @@ const getAnimation = (interview: Object | boolean) => {
 
 const Main = () => {
   // 기능 확장시 setInterviewQuestions 사용
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
   const [interviewQuestions] = useState(data)
   const haveQuestion = interviewQuestions ?? false
+
+  const todayPersonalNum = useSelector(getTodayPersonalNum)
+  const todayTechNum = useSelector(getTodayTechNum)
+  const [completeData, setCompleteData] = useState<ITodayQuizList[]>([])
+
+  const handleClickStart = () => {
+    dispatch(setTodayQuiz(completeData.map((item) => item.id)))
+    navigate('/complete') // 추후 /quiz로 변환
+  }
+
+  useEffect(() => {
+    setCompleteData(getTotalTodayQuizList(data, todayPersonalNum, todayTechNum))
+  }, [todayPersonalNum, todayTechNum])
 
   return (
     <section className={styles.main}>
@@ -54,7 +74,9 @@ const Main = () => {
       </main>
 
       <footer className={cx(styles.footer, { [styles.fillColor]: haveQuestion })}>
-        <button type='button'>면접 시작!</button>
+        <button type='button' onClick={handleClickStart}>
+          면접 시작!
+        </button>
       </footer>
     </section>
   )
