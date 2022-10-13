@@ -1,4 +1,4 @@
-import { ChangeEvent, Dispatch, useEffect, useMemo, useState } from 'react'
+import { ChangeEvent, Dispatch, SetStateAction, useEffect, useMemo, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { cx } from 'styles'
 import styles from './todayCount.module.scss'
@@ -7,8 +7,8 @@ import { maxLengthCheck, personalQuizCount, techQuizCount } from 'utils/settingU
 import { getTodayPersonalNum, getTodayTechNum } from 'states/setting'
 
 interface Props {
-  setTodayPersonal: Dispatch<React.SetStateAction<number>>
-  setTodayTech: Dispatch<React.SetStateAction<number>>
+  setTodayPersonal: Dispatch<SetStateAction<number>>
+  setTodayTech: Dispatch<SetStateAction<number>>
 }
 
 const TodayCount = ({ setTodayPersonal, setTodayTech }: Props) => {
