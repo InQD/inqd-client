@@ -1,5 +1,5 @@
 import styles from './quizTextarea.module.scss'
-import { useState } from 'react'
+import { ChangeEvent, useState } from 'react'
 
 interface Props {
   getText: (value: string) => void
@@ -7,7 +7,7 @@ interface Props {
 
 const Quizextarea = ({ getText }: Props) => {
   const [textCount, setTextCount] = useState(0)
-  const handleChangeTextarea = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+  const handleChangeTextarea = (e: ChangeEvent<HTMLTextAreaElement>) => {
     setTextCount(e.currentTarget.value.length)
     getText(e.currentTarget.value)
   }

@@ -17,7 +17,8 @@ const Search = () => {
 
   const handleClickReset = () => {
     setSearchText('')
-    searchInput.current?.focus()
+    if (!searchInput.current) return
+    searchInput.current.focus()
   }
 
   useEffect(() => {

@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { MouseEvent, useState } from 'react'
 import styles from './quizCategory.module.scss'
 import { cx } from 'styles'
 
@@ -8,7 +8,7 @@ interface Props {
 
 const QuizCategory = ({ getCategory }: Props) => {
   const [disabled, setDisabled] = useState(false)
-  const handleClickCategory = (e: React.MouseEvent<HTMLButtonElement>) => {
+  const handleClickCategory = (e: MouseEvent<HTMLButtonElement>) => {
     setDisabled((prev) => !prev)
     getCategory(e.currentTarget.value)
   }

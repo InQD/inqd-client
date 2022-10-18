@@ -1,4 +1,4 @@
-import { ChangeEvent, Dispatch, useEffect, useState } from 'react'
+import { ChangeEvent, Dispatch, SetStateAction, useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import styles from './timer.module.scss'
 
@@ -6,7 +6,7 @@ import { getTimerTime } from 'states/setting'
 import { maxLengthCheck } from 'utils/settingUtil'
 
 interface Props {
-  setTime: Dispatch<React.SetStateAction<number>>
+  setTime: Dispatch<SetStateAction<number>>
 }
 
 const Timer = ({ setTime }: Props) => {
